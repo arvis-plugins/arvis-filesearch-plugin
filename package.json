@@ -1,0 +1,26 @@
+{
+  "name": "arvis-filesearch-plugin",
+  "version": "0.0.1",
+  "description": "File search plugin for Arvis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jopemachine/arvis-filesearch-plugin.git"
+  },
+  "keywords": [
+    "arvis",
+    "arvis-plugin"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jopemachine/arvis-filesearch-plugin/issues"
+  },
+  "homepage": "https://github.com/jopemachine/arvis-filesearch-plugin#readme",
+  "dependencies": {
+    "glob": "^7.1.7"
+  }
+}

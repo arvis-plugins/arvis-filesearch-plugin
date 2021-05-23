@@ -1,0 +1,20 @@
+{
+    "$schema": "some_schema_file_path",
+    "bundleId": "org.jopemachine.arvis-filesearch-plugin",
+    "category": "Productivity",
+    "createdby": "jopemachine",
+    "description": "File search plugin for Arvis",
+    "name": "arvis-filesearch-plugin",
+    "readme": "https://github.com/jopemachine/arvis-filesearch-plugin",
+    "version": "",
+    "webaddress": "https://github.com/jopemachine/arvis-filesearch-plugin",
+    "enabled": true,
+    "main": "index.js",
+    "action": [
+        {
+            "modifiers": "normal",
+            "type": "open",
+            "target": "{query}"
+        }
+    ]
+}

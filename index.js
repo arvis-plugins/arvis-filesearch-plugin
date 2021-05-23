@@ -1,14 +1,13 @@
 const globAll = require("glob-all");
-const pathConf = require("./pathConf");
+const pluginConf = require("./conf");
 const arvish = require("arvish");
 const path = require("path");
 
 const sep = path.sep;
-const timer = 50;
 
 const getPluginItems = async (inputStr) => {
   return new Promise((resolve, reject) => {
-    const timeoutTimer = setTimeout(() => resolve([]), timer);
+    const timeoutTimer = setTimeout(() => resolve([]), pluginConf.timer);
 
     const globOpts = {
       cwd: "/",
@@ -19,10 +18,10 @@ const getPluginItems = async (inputStr) => {
     };
 
     const targetPaths = [
-      ...pathConf.include[process.platform].map(
+      ...pluginConf.include[process.platform].map(
         (filePath) => `${filePath}${sep}*${inputStr}*`
       ),
-      ...pathConf.exclude.map((filePath) => `!${filePath}`),
+      ...pluginConf.exclude.map((filePath) => `!${filePath}`),
     ];
 
     globAll(targetPaths, globOpts, function (err, files) {

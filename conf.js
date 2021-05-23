@@ -3,6 +3,7 @@ const path = require("path");
 const sep = path.sep;
 
 module.exports = {
+  timer: 50,
   include: {
     darwin: [
       `${homedir}${sep}Desktop`,

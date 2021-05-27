@@ -24,4 +24,4 @@ If this value is set too large, `Arvis` may slow down
 
 This plugin uses below icon sources
 
-<a target="_blank" href="https://icons8.comundefined">Image</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com">Image</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

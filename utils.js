@@ -15,6 +15,9 @@ const getIcon = (fileName) => {
     case "pjp":
     case "png":
     case "svg":
+    case "tif":
+    case "bmp":
+    case "psd":
       return "img.png";
 
     case "xlam":
@@ -23,6 +26,9 @@ const getIcon = (fileName) => {
     case "xlsm":
     case "xlsx":
     case "xltx":
+    case "xls":
+    case "csv":
+    case "numbers":
       return "excel.png";
 
     case "pdf":
@@ -36,6 +42,7 @@ const getIcon = (fileName) => {
     case "arvistheme":
       return "arvis.png";
 
+    case "mhtml":
     case "html":
       return "html.png";
 
@@ -52,6 +59,8 @@ const getIcon = (fileName) => {
     case "gzip":
     case "lzip":
     case "egg":
+    case "alz":
+    case "gz":
       return "archive.png";
 
     case "mp3":
@@ -66,10 +75,58 @@ const getIcon = (fileName) => {
     case "flv":
     case "mov":
     case "mpg":
+    case "swf":
+    case "mp4":
+    case "mpeg":
       return "video.png";
 
     case "json":
       return "json.png";
+
+    case "xml":
+      return "xml.png";
+
+    case "ts":
+      return "ts.png";
+
+    case "hpp":
+    case "cpp":
+      return "cpp.png";
+
+    case "exe":
+    case "app":
+      return "program.png";
+
+    case "ppt":
+    case "pptx":
+    case "pptm":
+    case "ppsm":
+    case "ppam":
+    case "ppa":
+      return "ppt.png";
+
+    case "txt":
+    case "rtf":
+    case "hwp":
+    case "odt":
+      return "text.png";
+
+    case "doc":
+    case "docx":
+    case "dotx":
+    case "dot":
+    case "docm":
+      return "doc.png";
+
+    case "java":
+      return "java.png";
+
+    case "go":
+      return "golang.png";
+
+    case "c":
+    case "h":
+      return "clang.png";
   }
 
   return "icon.png";

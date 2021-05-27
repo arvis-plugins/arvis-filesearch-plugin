@@ -3,28 +3,34 @@ const {
   getDocumentsFolder,
   getDownloadsFolder,
   getHomeFolder,
+  getVideosFolder,
+  getMusicFolder,
+  getPicturesFolder,
+  getSaveGamesFolder,
 } = require("platform-folders");
+
+const defaultFolders = [
+  getDesktopFolder(),
+  getDownloadsFolder(),
+  getDocumentsFolder(),
+  getHomeFolder(),
+  // getVideosFolder(),
+  // getMusicFolder(),
+  // getPicturesFolder(),
+  // getSaveGamesFolder(),
+];
 
 module.exports = {
   timer: 50,
   include: {
     darwin: [
-      getDesktopFolder(),
-      getDownloadsFolder(),
-      getDocumentsFolder(),
-      getHomeFolder(),
+      ...defaultFolders
     ],
     win32: [
-      getDesktopFolder(),
-      getDownloadsFolder(),
-      getDocumentsFolder(),
-      getHomeFolder(),
+      ...defaultFolders
     ],
     linux: [
-      getDesktopFolder(),
-      getDownloadsFolder(),
-      getDocumentsFolder(),
-      getHomeFolder(),
+      ...defaultFolders
     ],
   },
   exclude: [],

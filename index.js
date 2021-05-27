@@ -1,7 +1,8 @@
 const globAll = require("glob-all");
-const pluginConf = require("./conf");
 const arvish = require("arvish");
 const path = require("path");
+const pluginConf = require("./conf");
+const { getIcon, getRootDir } = require('./utils');
 
 const sep = path.sep;
 
@@ -10,7 +11,7 @@ const getPluginItems = async (inputStr) => {
     const timeoutTimer = setTimeout(() => resolve([]), pluginConf.timer);
 
     const globOpts = {
-      cwd: "/",
+      cwd: getRootDir(),
       realpath: true,
       sync: false,
       follow: false,
@@ -38,12 +39,12 @@ const getPluginItems = async (inputStr) => {
           subtitle: filePath,
           arg: filePath,
           icon: {
-            path: `${__dirname}${path.sep}icon.png`,
+            path: `${__dirname}${sep}icons${sep}${getIcon(fileName)}`,
           },
         };
       });
 
-      resolve(arvish.output(items));
+      resolve(arvish.output(items, { print: false }));
     });
   });
 };

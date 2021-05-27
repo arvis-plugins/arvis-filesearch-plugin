@@ -1,15 +1,30 @@
-const { homedir, platform } = require("os");
-const path = require("path");
-const sep = path.sep;
+const {
+  getDesktopFolder,
+  getDocumentsFolder,
+  getDownloadsFolder,
+  getHomeFolder,
+} = require("platform-folders");
 
 module.exports = {
   timer: 50,
   include: {
     darwin: [
-      `${homedir}${sep}Desktop`,
-      `${homedir}${sep}Downloads`,
-      `${homedir}${sep}Music`,
-      `${homedir}${sep}Documents`,
+      getDesktopFolder(),
+      getDownloadsFolder(),
+      getDocumentsFolder(),
+      getHomeFolder(),
+    ],
+    win32: [
+      getDesktopFolder(),
+      getDownloadsFolder(),
+      getDocumentsFolder(),
+      getHomeFolder(),
+    ],
+    linux: [
+      getDesktopFolder(),
+      getDownloadsFolder(),
+      getDocumentsFolder(),
+      getHomeFolder(),
     ],
   },
   exclude: [],

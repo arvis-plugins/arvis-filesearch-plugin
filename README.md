@@ -19,3 +19,9 @@ To exclude some directory, Add path to exclude to `exclude` of `conf.js`
 Returns an empty array if `globAll` does not return during `timer`
 
 If this value is set too large, `Arvis` may slow down
+
+## Icon sources
+
+This plugin uses below icon sources
+
+<a target="_blank" href="https://icons8.comundefined">Image</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

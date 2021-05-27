@@ -14,7 +14,7 @@
     "arvis",
     "arvis-plugin"
   ],
-  "author": "",
+  "author": "jopemachine",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jopemachine/arvis-filesearch-plugin/issues"
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/jopemachine/arvis-filesearch-plugin#readme",
   "dependencies": {
     "arvish": "~/Desktop/arvish",
-    "glob-all": "^3.2.1"
+    "glob-all": "^3.2.1",
+    "platform-folders": "^0.5.3"
   }
 }

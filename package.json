@@ -21,8 +21,7 @@
   },
   "homepage": "https://github.com/jopemachine/arvis-filesearch-plugin#readme",
   "dependencies": {
-    "arvish": "~/Desktop/arvish",
-    "glob-all": "^3.2.1",
+    "fast-glob": "^3.2.5",
     "platform-folders": "^0.5.3"
   }
 }

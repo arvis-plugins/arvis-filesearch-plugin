@@ -3,6 +3,7 @@ const path = require("path");
 const getRootDir = () => path.parse(process.cwd()).root;
 
 const getIcon = (fileName) => {
+  if (fileName.endsWith("/")) return "folder.png";
   if (!fileName.includes(".")) return "icon.png";
   const ext = fileName.split(".")[1];
 

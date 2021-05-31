@@ -39,19 +39,29 @@ const getPluginItems = async (inputStr) => {
     } else {
       targetPaths = targetPaths.map((targetPath) => path.resolve(targetPath));
     }
+    
+    const getFileOrDirName = (filePath) => {
+      return filePath.endsWith(sep)
+        ? filePath
+            .substring(0, filePath.length - 1)
+            .split(sep)
+            .pop()
+        : filePath.split(sep).pop();
+    };
 
     fg(targetPaths, globOpts)
       .then((files) => {
         clearTimeout(timeoutTimer);
 
         const items = files.map((filePath) => {
-          const fileName = filePath.split(path.sep).pop();
+          const fileName = getFileOrDirName(filePath);
+
           return {
             title: fileName,
             subtitle: filePath,
             arg: filePath,
             icon: {
-              path: `${__dirname}${sep}icons${sep}${getIcon(fileName)}`,
+              path: `${__dirname}${sep}icons${sep}${getIcon(filePath)}`,
             },
           };
         });

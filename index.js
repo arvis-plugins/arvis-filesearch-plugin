@@ -27,7 +27,7 @@ const getPluginItems = async (inputStr) => {
 
     let targetPaths = [
       ...pluginConf.include[process.platform].map(
-        (filePath) => `${filePath}${sep}*${inputStr}*`
+        (filePath) => `${filePath}${sep}**${sep}*${inputStr}*`
       ),
       ...pluginConf.exclude.map((filePath) => `!${filePath}`),
     ];

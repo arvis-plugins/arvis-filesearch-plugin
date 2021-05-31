@@ -40,8 +40,8 @@ const getPluginItems = async (inputStr) => {
       targetPaths = targetPaths.map((targetPath) => path.resolve(targetPath));
     }
 
-    try {
-      fg(targetPaths, globOpts).then((files) => {
+    fg(targetPaths, globOpts)
+      .then((files) => {
         clearTimeout(timeoutTimer);
 
         const items = files.map((filePath) => {
@@ -59,13 +59,11 @@ const getPluginItems = async (inputStr) => {
         resolve({
           items,
         });
-      });
-    } catch (err) {
-      if (err) {
+      })
+      .catch((err) => {
         console.error("arvis-filesearch-plugin throws an Error", err);
         resolve([]);
-      }
-    }
+      });
   });
 };
 

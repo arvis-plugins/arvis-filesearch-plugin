@@ -39,7 +39,7 @@ const getPluginItems = async (inputStr) => {
     } else {
       targetPaths = targetPaths.map((targetPath) => path.resolve(targetPath));
     }
-    
+
     const getFileOrDirName = (filePath) => {
       return filePath.endsWith(sep)
         ? filePath
@@ -72,7 +72,7 @@ const getPluginItems = async (inputStr) => {
       })
       .catch((err) => {
         console.error("arvis-filesearch-plugin throws an Error", err);
-        resolve([]);
+        resolve({ items: [] });
       });
   });
 };

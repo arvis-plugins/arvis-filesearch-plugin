@@ -18,11 +18,15 @@ You can open the config file by typing or copy and paste `@config/arvis-filesear
 
 type: `string []`
 
+default value: `desktop folder`, `documents folder`, `downloads folder`, `home folder`.
+
 To add more directory, Add path to find to `include` of `conf.js`
 
 ### exclude
 
 type: `string []`
+
+default value: `[]`
 
 To exclude some directory, Add path to exclude to `exclude` of `conf.js`
 
@@ -30,7 +34,9 @@ To exclude some directory, Add path to exclude to `exclude` of `conf.js`
 
 type: `number`
 
-Returns an empty array if `globAll` does not return during `timer`
+default value: `100`
+
+Returns an empty array if `fast-glob` does not return during `timer`
 
 If this value is set too large, `Arvis` may slow down
 

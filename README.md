@@ -32,6 +32,8 @@ If this value is set too large, `Arvis` may slow down
 
 type: `number`
 
+default value: `1`
+
 Sets the depth to explore
 
 ### concurrency

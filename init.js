@@ -31,7 +31,7 @@ if (!arvish.getConfig().has("setting")) {
     include: [...defaultFolders],
     exclude: [],
     maxItem: 30,
-    deep: 2,
+    deep: 1,
     includeDotFiles: false,
   };
 

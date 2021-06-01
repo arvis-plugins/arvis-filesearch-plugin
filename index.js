@@ -44,6 +44,7 @@ const getPluginItems = async ({ inputStr }) => {
     };
 
     let targetPaths = [
+      ...pluginConf.include.map((filePath) => `${filePath}${sep}**${sep}*${inputStr}*`),
       ...pluginConf.include.map((filePath) => `${filePath}${sep}*${inputStr}*`),
       ...pluginConf.exclude.map((filePath) => `!${filePath}`),
     ];

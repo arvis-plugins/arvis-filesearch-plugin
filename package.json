@@ -1,18 +1,29 @@
 {
-  "name": "arvis-filesearch-plugin",
+  "name": "@jopemachine/arvis-filesearch-plugin",
   "version": "0.0.1",
   "description": "File search plugin for Arvis",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "arvish-init",
+    "preuninstall": "arvish-cleanup"
   },
+  "files": [
+    "*.js",
+    "*.json",
+    "README.md",
+    "LICENSE",
+    "icons/*.png"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jopemachine/arvis-filesearch-plugin.git"
   },
   "keywords": [
     "arvis",
-    "arvis-plugin"
+    "arvis-plugin",
+    "file-search",
+    "fast-glob"
   ],
   "author": "jopemachine",
   "license": "MIT",
@@ -21,7 +32,7 @@
   },
   "homepage": "https://github.com/jopemachine/arvis-filesearch-plugin#readme",
   "dependencies": {
-    "@jopemachine/arvish": "^0.0.3",
+    "@jopemachine/arvish": "^0.0.4",
     "fast-glob": "^3.2.5",
     "platform-folders": "^0.5.3",
     "string-similarity": "^4.0.4"

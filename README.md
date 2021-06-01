@@ -2,6 +2,12 @@
 
 Cross platform file search plugin for [Arvis](https://github.com/jopemachine/arvis)
 
+## Installation
+
+```
+$ npm i -g arvis-filesearch-plugin
+```
+
 ## Config
 
 You can edit this plugin's config.

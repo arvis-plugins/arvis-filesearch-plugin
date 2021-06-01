@@ -1,4 +1,4 @@
-const arvish = require("arvish");
+const arvish = require("@jopemachine/arvish");
 const {
   getDesktopFolder,
   getDocumentsFolder,

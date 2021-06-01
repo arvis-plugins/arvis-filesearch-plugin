@@ -1,3 +1,4 @@
+const arvish = require("arvish");
 const {
   getDesktopFolder,
   getDocumentsFolder,
@@ -20,18 +21,19 @@ const defaultFolders = [
   // getSaveGamesFolder(),
 ];
 
-module.exports = {
-  timer: 50,
-  include: {
-    darwin: [
-      ...defaultFolders
-    ],
-    win32: [
-      ...defaultFolders
-    ],
-    linux: [
-      ...defaultFolders
-    ],
-  },
-  exclude: [],
-};
+const darwin = [];
+const win32 = [];
+const linux = [];
+
+if (!arvish.getConfig().has("setting")) {
+  const defaultConfig = {
+    timer: 100,
+    include: [...defaultFolders],
+    exclude: [],
+    maxItem: 30,
+    deep: 2,
+    includeDotFiles: false,
+  };
+
+  arvish.getConfig().set("setting", defaultConfig);
+}

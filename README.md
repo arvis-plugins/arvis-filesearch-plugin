@@ -1,10 +1,12 @@
 # arvis-filesearch-plugin
 
-File search plugin for [Arvis](https://github.com/jopemachine/arvis) (Using [fast-glob](https://github.com/mrmlnc/fast-glob))
+Cross platform file search plugin for [Arvis](https://github.com/jopemachine/arvis)
 
 ## Config
 
-You can include or exclude the paths plugin will finds in `conf.js`.
+You can edit this plugin's config.
+
+You can open the config file by typing or copy and paste `@config/arvis-filesearch-plugin` to Arvis.
 
 ### include
 
@@ -39,6 +41,24 @@ type: `number | undefined`
 default value: `os.cpus().length`
 
 Specifies the number of cpu to use for navigation
+
+### maxItem
+
+type: `number`
+
+default value: `30`
+
+Maximum number of output files
+
+It doesn't affect performance.
+
+### includeDotFiles
+
+type: `boolean`
+
+default value : `false`
+
+Include files beginning with `.` in your search
 
 ## Icon sources
 

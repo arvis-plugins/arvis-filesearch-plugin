@@ -1,6 +1,5 @@
 {
     "$schema": "some_schema_file_path",
-    "bundleId": "org.jopemachine.arvis-filesearch-plugin",
     "category": "Productivity",
     "createdby": "jopemachine",
     "description": "File search plugin for Arvis",

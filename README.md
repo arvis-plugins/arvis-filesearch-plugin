@@ -2,6 +2,8 @@
 
 Cross platform file search plugin for [Arvis](https://github.com/jopemachine/arvis)
 
+![](./demo.gif)
+
 ## Installation
 
 ```

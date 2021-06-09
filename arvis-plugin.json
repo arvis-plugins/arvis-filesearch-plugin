@@ -2,6 +2,7 @@
     "$schema": "some_schema_file_path",
     "category": "Productivity",
     "createdby": "jopemachine",
+    "defaultIcon": "icon.png",
     "description": "File search plugin for Arvis",
     "name": "arvis-filesearch-plugin",
     "readme": "https://github.com/jopemachine/arvis-filesearch-plugin",

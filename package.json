@@ -1,6 +1,6 @@
 {
   "name": "@jopemachine/arvis-filesearch-plugin",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "File search plugin for Arvis",
   "main": "index.js",
   "scripts": {

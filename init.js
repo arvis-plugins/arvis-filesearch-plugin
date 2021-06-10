@@ -27,7 +27,6 @@ const linux = [];
 
 if (!arvish.getConfig().has("setting")) {
   const defaultConfig = {
-    timer: 100,
     include: [...defaultFolders],
     exclude: [],
     maxItem: 30,

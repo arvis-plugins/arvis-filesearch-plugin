@@ -32,16 +32,6 @@ default value: `[]`
 
 To exclude some directory, Add path to exclude to `exclude` of `conf.js`
 
-### timer
-
-type: `number`
-
-default value: `100`
-
-Returns an empty array if `fast-glob` does not return during `timer`
-
-If this value is set too large, `Arvis` may slow down
-
 ### deep
 
 type: `number`

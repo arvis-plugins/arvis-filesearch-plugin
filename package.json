@@ -1,6 +1,6 @@
 {
   "name": "@jopemachine/arvis-filesearch-plugin",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "File search plugin for Arvis",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   "keywords": [
     "arvis",
     "arvis-plugin",
+    "arvish",
     "file-search",
     "fast-glob"
   ],
@@ -33,9 +34,8 @@
   },
   "homepage": "https://github.com/jopemachine/arvis-filesearch-plugin#readme",
   "dependencies": {
-    "@jopemachine/arvish": "^0.1.25",
+    "@jopemachine/arvish": "^0.1.26",
     "fast-glob": "^3.2.5",
-    "platform-folders": "^0.5.3",
-    "string-similarity": "^4.0.4"
+    "platform-folders": "^0.5.3"
   }
 }

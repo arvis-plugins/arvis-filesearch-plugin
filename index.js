@@ -1,7 +1,6 @@
 const fg = require("fast-glob");
 const path = require("path");
 const os = require("os");
-const stringSimilarity = require("string-similarity");
 const arvish = require("@jopemachine/arvish");
 const { getIcon, getRootDir } = require("./utils");
 require("./init");
@@ -26,8 +25,6 @@ const getPluginItems = async ({ inputStr }) => {
   }
 
   return new Promise((resolve, reject) => {
-    const timeoutTimer = setTimeout(() => resolve([]), pluginConf.timer);
-
     const globOpts = {
       absolute: true,
       caseSensitiveMatch: false,
@@ -44,7 +41,9 @@ const getPluginItems = async ({ inputStr }) => {
     };
 
     let targetPaths = [
-      ...pluginConf.include.map((filePath) => `${filePath}${sep}**${sep}*${inputStr}*`),
+      ...pluginConf.include.map(
+        (filePath) => `${filePath}${sep}**${sep}*${inputStr}*`
+      ),
       ...pluginConf.include.map((filePath) => `${filePath}${sep}*${inputStr}*`),
       ...pluginConf.exclude.map((filePath) => `!${filePath}`),
     ];
@@ -58,36 +57,28 @@ const getPluginItems = async ({ inputStr }) => {
     }
 
     const getFileOrDirName = (filePath) => {
-      return filePath.endsWith('/')
+      return filePath.endsWith("/")
         ? filePath
             .substring(0, filePath.length - 1)
-            .split('/')
+            .split("/")
             .pop()
-        : filePath.split('/').pop();
+        : filePath.split("/").pop();
     };
 
     fg(targetPaths, globOpts)
       .then((files) => {
-        clearTimeout(timeoutTimer);
+        const items = files.map((filePath) => {
+          const fileName = getFileOrDirName(filePath);
 
-        const items = files
-          .map((filePath) => {
-            const fileName = getFileOrDirName(filePath);
-
-            return {
-              title: fileName,
-              subtitle: filePath,
-              arg: filePath,
-              similarity: stringSimilarity.compareTwoStrings(
-                inputStr,
-                fileName
-              ),
-              icon: {
-                path: `${__dirname}${sep}icons${sep}${getIcon(filePath)}`,
-              },
-            };
-          })
-          .sort((a, b) => (a.similarity < b.similarity ? 1 : -1));
+          return {
+            title: fileName,
+            subtitle: filePath,
+            arg: filePath,
+            icon: {
+              path: `${__dirname}${sep}icons${sep}${getIcon(filePath)}`,
+            },
+          };
+        });
 
         resolve({
           items: items.slice(0, pluginConf.maxItem),

@@ -9,6 +9,11 @@ const pluginConf = arvish.getConfig().get("setting");
 const sep = path.sep;
 
 const getPluginItems = async ({ inputStr }) => {
+  if (inputStr === "")
+    return {
+      items: [],
+    };
+
   if (
     inputStr === "@config" ||
     inputStr.startsWith("@config/arvis-filesearch-plugin")

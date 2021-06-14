@@ -1,7 +1,7 @@
 const fg = require("fast-glob");
 const path = require("path");
 const os = require("os");
-const arvish = require("@jopemachine/arvish");
+const arvish = require("arvish");
 const { getIcon, getRootDir } = require("./utils");
 require("./init");
 const pluginConf = arvish.getConfig().get("setting");

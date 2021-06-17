@@ -14,20 +14,14 @@ const getPluginItems = async ({ inputStr }) => {
       items: [],
     };
 
-  if (
-    inputStr === "@config" ||
-    inputStr.startsWith("@config/arvis-filesearch-plugin")
-  ) {
-    return {
-      items: [
-        {
-          title: "Open config file of arvis-filesearch-plugin",
-          subtitle: arvish.getConfig().path,
-          arg: arvish.getConfig().path,
-        },
-      ],
-    };
-  }
+  const configItems = [
+    {
+      command: "@config/arvis-filesearch-plugin",
+      title: "Open config file of arvis-filesearch-plugin",
+      subtitle: "@config/arvis-filesearch-plugin",
+      arg: arvish.getConfig().path,
+    },
+  ];
 
   return new Promise((resolve, reject) => {
     const globOpts = {
@@ -86,7 +80,7 @@ const getPluginItems = async ({ inputStr }) => {
         });
 
         resolve({
-          items: items.slice(0, pluginConf.maxItem),
+          items: [...items.slice(0, pluginConf.maxItem), ...configItems],
         });
       })
       .catch((err) => {

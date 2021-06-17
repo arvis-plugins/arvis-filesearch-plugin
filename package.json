@@ -1,6 +1,6 @@
 {
   "name": "arvis-filesearch-plugin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "File search plugin for Arvis",
   "main": "index.js",
   "scripts": {

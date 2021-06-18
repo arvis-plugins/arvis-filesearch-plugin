@@ -1,24 +1,11 @@
 const arvish = require("arvish");
-const {
-  getDesktopFolder,
-  getDocumentsFolder,
-  getDownloadsFolder,
-  getHomeFolder,
-  getVideosFolder,
-  getMusicFolder,
-  getPicturesFolder,
-  getSaveGamesFolder,
-} = require("platform-folders");
+const getEnv = (key) => process.env[`arvis_${key}`];
 
 const defaultFolders = [
-  getDesktopFolder(),
-  getDownloadsFolder(),
-  getDocumentsFolder(),
-  getHomeFolder(),
-  // getVideosFolder(),
-  // getMusicFolder(),
-  // getPicturesFolder(),
-  // getSaveGamesFolder(),
+  getEnv('platform_desktop'),
+  getEnv('platform_downloads'),
+  getEnv('platform_documents'),
+  getEnv('platform_home'),
 ];
 
 const darwin = [];

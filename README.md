@@ -1,4 +1,5 @@
 # arvis-filesearch-plugin
+[![CodeFactor](https://www.codefactor.io/repository/github/jopemachine/arvis-filesearch-plugin/badge)](https://www.codefactor.io/repository/github/jopemachine/arvis-filesearch-plugin)
 [![NPM download total](https://img.shields.io/npm/dt/arvis-filesearch-plugin)](http://badge.fury.io/js/arvis-filesearch-plugin)
 [![NPM version](https://badge.fury.io/js/arvis-filesearch-plugin.svg)](http://badge.fury.io/js/arvis-filesearch-plugin)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)

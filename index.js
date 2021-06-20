@@ -65,7 +65,7 @@ const getPluginItems = async ({ inputStr }) => {
     };
 
     fg(targetPaths, globOpts)
-      .then((files) => {
+      .then(async (files) => {
         const items = files.map((filePath) => {
           const fileName = getFileOrDirName(filePath);
 
@@ -73,11 +73,16 @@ const getPluginItems = async ({ inputStr }) => {
             title: fileName,
             subtitle: filePath,
             arg: filePath,
-            icon: {
-              path: `${__dirname}${sep}icons${sep}${getIcon(filePath)}`,
-            },
+            fileName,
+            filePath,
           };
         });
+
+        await Promise.all(
+          items.map(async (item) => {
+            item.icon = `icons/${await getIcon(item.fileName, item.filePath)}`;
+          })
+        );
 
         resolve({
           items: [...items.slice(0, pluginConf.maxItem), ...configItems],

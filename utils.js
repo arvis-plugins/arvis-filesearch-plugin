@@ -1,13 +1,24 @@
 const path = require("path");
+const { fromFile } = require('file-type');
 
 const getRootDir = () => path.parse(process.cwd()).root;
 
-const getIcon = (fileName) => {
-  if (fileName.endsWith("/")) return "folder.png";
-  if (!fileName.includes(".")) return "icon.png";
-  const ext = fileName.split(".")[1];
+const getIcon = async (fileName, filePath) => {
+  if (filePath.endsWith("/")) return "folder.png";
 
-  switch (ext) {
+  let ext;
+  if (!fileName.includes(".")) {
+    try {
+      const fileInfo = await fromFile(filePath);
+      ext = fileInfo.ext;
+    } catch (err) {
+      ext = "icon.png";
+    }
+  } else {
+    ext = path.extname(filePath).split('.')[1];
+  }
+
+  switch (ext.toLowerCase()) {
     case "gif":
     case "icns":
     case "ico":

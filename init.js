@@ -12,7 +12,7 @@ const darwin = [];
 const win32 = [];
 const linux = [];
 
-if (!arvish.getConfig().has("setting")) {
+if (!arvish.config.has("setting")) {
   const defaultConfig = {
     include: [...defaultFolders],
     exclude: [],
@@ -21,5 +21,5 @@ if (!arvish.getConfig().has("setting")) {
     includeDotFiles: false,
   };
 
-  arvish.getConfig().set("setting", defaultConfig);
+  arvish.config.set("setting", defaultConfig);
 }

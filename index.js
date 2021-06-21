@@ -4,7 +4,7 @@ const os = require("os");
 const arvish = require("arvish");
 const { getIcon, getRootDir } = require("./utils");
 require("./init");
-const pluginConf = arvish.getConfig().get("setting");
+const pluginConf = arvish.config.get("setting");
 
 const sep = path.sep;
 
@@ -19,7 +19,7 @@ const getPluginItems = async ({ inputStr }) => {
       command: "@config/arvis-filesearch-plugin",
       title: "Open config file of arvis-filesearch-plugin",
       subtitle: "@config/arvis-filesearch-plugin",
-      arg: arvish.getConfig().path,
+      arg: arvish.config.path,
     },
   ];
 

@@ -3,8 +3,15 @@ const path = require("path");
 const os = require("os");
 const arvish = require("arvish");
 const { getIcon, getRootDir } = require("./utils");
-require("./init");
-const pluginConf = arvish.config.get("setting");
+
+const pluginConf = {
+  include: JSON.parse(process.env.include),
+  customInclude: JSON.parse(process.env.customInclude),
+  exclude: JSON.parse(process.env.exclude),
+  maxItem: JSON.parse(process.env.maxItem),
+  deep: JSON.parse(process.env.deep),
+  includeDotFiles: JSON.parse(process.env.includeDotFiles),
+};
 
 const sep = path.sep;
 
@@ -14,14 +21,7 @@ const getPluginItems = async ({ inputStr }) => {
       items: [],
     };
 
-  const configItems = [
-    {
-      command: "@config/arvis-filesearch-plugin",
-      title: "Open config file of arvis-filesearch-plugin",
-      subtitle: "@config/arvis-filesearch-plugin",
-      arg: arvish.config.path,
-    },
-  ];
+  const configItems = [];
 
   return new Promise((resolve, reject) => {
     const globOpts = {
@@ -40,10 +40,16 @@ const getPluginItems = async ({ inputStr }) => {
     };
 
     let targetPaths = [
-      ...pluginConf.include.map(
+      ...pluginConf.customInclude.map((filePath) => `${filePath}${sep}*${inputStr}*`),
+      ...pluginConf.customInclude.map(
         (filePath) => `${filePath}${sep}**${sep}*${inputStr}*`
       ),
-      ...pluginConf.include.map((filePath) => `${filePath}${sep}*${inputStr}*`),
+
+      ...pluginConf.include.map((platformEnvKey) => `${arvish.env[platformEnvKey]}${sep}*${inputStr}*`),
+      ...pluginConf.include.map(
+        (platformEnvKey) => `${arvish.env[platformEnvKey]}${sep}**${sep}*${inputStr}*`
+      ),
+
       ...pluginConf.exclude.map((filePath) => `!${filePath}`),
     ];
 

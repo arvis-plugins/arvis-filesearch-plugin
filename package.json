@@ -1,12 +1,16 @@
 {
   "name": "arvis-filesearch-plugin",
-  "version": "0.0.8",
+  "version": "0.1.7",
   "description": "File search plugin for Arvis",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "arvish-init",
-    "preuninstall": "arvish-cleanup"
+    "postinstall": "arvish-init && node init.js",
+    "preuninstall": "arvish-cleanup",
+    "prepublishOnly": "arvish-prepublish"
+  },
+  "arvish": {
+    "updateNotification": false
   },
   "files": [
     "*.js",
@@ -34,8 +38,10 @@
   },
   "homepage": "https://github.com/jopemachine/arvis-filesearch-plugin#readme",
   "dependencies": {
-    "arvish": "^0.3.1",
+    "arvish": ">=0.5.1",
+    "env-paths": "^2.2.1",
     "fast-glob": "^3.2.5",
-    "file-type": "^16.5.0"
+    "file-type": "^16.5.0",
+    "fs-extra": "^10.0.0"
   }
 }

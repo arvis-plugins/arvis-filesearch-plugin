@@ -1,25 +1,31 @@
+#!/usr/bin/env node
 const arvish = require("arvish");
-const getEnv = (key) => process.env[`arvis_${key}`];
-
-const defaultFolders = [
-  getEnv('platform_desktop'),
-  getEnv('platform_downloads'),
-  getEnv('platform_documents'),
-  getEnv('platform_home'),
-];
+const fse = require("fs-extra");
+const path = require("path");
+const envPathsGenerator = require("env-paths");
+const envPaths = envPathsGenerator('arvis');
 
 const darwin = [];
 const win32 = [];
 const linux = [];
 
-if (!arvish.config.has("setting")) {
-  const defaultConfig = {
-    include: [...defaultFolders],
-    exclude: [],
-    maxItem: 30,
-    deep: 1,
-    includeDotFiles: false,
-  };
+const defaultConfig = {
+  include: ['desktop', 'downloads', 'documents', 'home'],
+  customInclude: [],
+  exclude: [],
+  maxItem: 30,
+  deep: 1,
+  includeDotFiles: false,
+};
 
-  arvish.config.set("setting", defaultConfig);
-}
+const pluginSetting = require('./arvis-plugin.json');
+
+pluginSetting.variables = {
+  ...defaultConfig,
+  ...pluginSetting.variables,
+};
+
+fse.writeJSONSync('./arvis-plugin.json', pluginSetting, { encoding: 'utf-8', spaces: 4 });
+
+const arvisRenewExtensionFlagFilePath = path.resolve(envPaths.data, 'arvis-extension-renew');
+fse.writeJSONSync(arvisRenewExtensionFlagFilePath, '');

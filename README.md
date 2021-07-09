@@ -18,9 +18,9 @@ $ npm i -g arvis-filesearch-plugin
 
 ## Config
 
-You can edit this plugin's config.
+You can edit this plugin's config on `User config table` like below.
 
-You can open the config file by typing or copy and paste `@config/arvis-filesearch-plugin` to Arvis.
+![](./config.png)
 
 ### include
 

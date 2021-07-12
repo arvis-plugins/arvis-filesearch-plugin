@@ -18,6 +18,8 @@ const getIcon = async (fileName, filePath) => {
     ext = path.extname(filePath).split('.')[1];
   }
 
+  if (!ext) return "icon.png";
+
   switch (ext.toLowerCase()) {
     case "gif":
     case "icns":

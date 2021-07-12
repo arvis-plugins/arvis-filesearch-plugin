@@ -8,9 +8,9 @@ const pluginConf = {
   include: JSON.parse(process.env.include),
   customInclude: JSON.parse(process.env.customInclude),
   exclude: JSON.parse(process.env.exclude),
-  maxItem: JSON.parse(process.env.maxItem),
-  deep: JSON.parse(process.env.deep),
-  includeDotFiles: JSON.parse(process.env.includeDotFiles),
+  maxItem: Number(process.env.maxItem),
+  deep: Number(process.env.deep),
+  includeDotFiles: Boolean(process.env.includeDotFiles),
 };
 
 const sep = path.sep;

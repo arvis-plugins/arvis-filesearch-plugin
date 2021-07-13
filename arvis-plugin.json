@@ -6,8 +6,20 @@
     "description": "File search plugin for Arvis",
     "name": "arvis-filesearch-plugin",
     "readme": "https://github.com/jopemachine/arvis-filesearch-plugin",
-    "variables": {},
-    "version": "0.1.9",
+    "variables": {
+        "include": [
+            "desktop",
+            "downloads",
+            "documents",
+            "home"
+        ],
+        "customInclude": [],
+        "exclude": [],
+        "maxItem": 30,
+        "deep": 1,
+        "includeDotFiles": false
+    },
+    "version": "0.2.0",
     "webAddress": "https://github.com/jopemachine/arvis-filesearch-plugin",
     "enabled": true,
     "main": "index.js",

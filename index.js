@@ -45,9 +45,9 @@ const getPluginItems = async ({ inputStr }) => {
         (filePath) => `${filePath}${sep}**${sep}*${inputStr}*`
       ),
 
-      ...pluginConf.include.map((platformEnvKey) => `${arvish.env[platformEnvKey]}${sep}*${inputStr}*`),
+      ...pluginConf.include.map((platformEnvKey) => `${arvish.env.platform[platformEnvKey]}${sep}*${inputStr}*`),
       ...pluginConf.include.map(
-        (platformEnvKey) => `${arvish.env[platformEnvKey]}${sep}**${sep}*${inputStr}*`
+        (platformEnvKey) => `${arvish.env.platform[platformEnvKey]}${sep}**${sep}*${inputStr}*`
       ),
 
       ...pluginConf.exclude.map((filePath) => `!${filePath}`),
@@ -64,9 +64,9 @@ const getPluginItems = async ({ inputStr }) => {
     const getFileOrDirName = (filePath) => {
       return filePath.endsWith("/")
         ? filePath
-            .substring(0, filePath.length - 1)
-            .split("/")
-            .pop()
+          .substring(0, filePath.length - 1)
+          .split("/")
+          .pop()
         : filePath.split("/").pop();
     };
 

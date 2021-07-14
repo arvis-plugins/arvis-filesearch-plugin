@@ -26,9 +26,17 @@ You can edit this plugin's config on `User config table` like below.
 
 type: `string []`
 
-default value: `desktop folder`, `documents folder`, `downloads folder`, `home folder`.
+default value: `desktop`, `documents`, `downloads`, `home`
 
-To add more directory, Add path to find to `include` of `conf.js`
+To add more directory, refer to this [platform](https://github.com/jopemachine/arvish/blob/master/documents/lib-workflow.md#platform) env variables.
+
+### customInclude
+
+type: `string []`
+
+default value: `[]`
+
+You can include directory add custom directories you want to search.
 
 ### exclude
 

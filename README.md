@@ -80,6 +80,14 @@ default value : `false`
 
 Include files beginning with `.` in your search
 
+## Related
+
+* [fast-glob](https://github.com/mrmlnc/fast-glob) - API for this module.
+
+- [arvish](https://github.com/jopemachine/arvish) - Arvis workflow, plugin creator tools
+
+- [other plugins](https://github.com/jopemachine/arvis/blob/master/documents/plugin-links.md)
+
 ## Icon sources
 
 This plugin uses below icon sources

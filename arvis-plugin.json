@@ -19,7 +19,7 @@
         "deep": 1,
         "includeDotFiles": false
     },
-    "version": "0.2.1",
+    "version": "0.2.2",
     "webAddress": "https://github.com/jopemachine/arvis-filesearch-plugin",
     "enabled": true,
     "main": "index.js",

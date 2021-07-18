@@ -82,7 +82,7 @@ Include files beginning with `.` in your search
 
 ## Related
 
-* [fast-glob](https://github.com/mrmlnc/fast-glob) - API for this module.
+- [fast-glob](https://github.com/mrmlnc/fast-glob) - API for this module.
 
 - [arvish](https://github.com/jopemachine/arvish) - Arvis workflow, plugin creator tools
 

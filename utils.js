@@ -21,18 +21,20 @@ const getIcon = async (fileName, filePath) => {
   if (!ext) return "icon.png";
 
   switch (ext.toLowerCase()) {
-    case "gif":
-    case "icns":
-    case "ico":
     case "jpeg":
     case "jpg":
-    case "pjp":
     case "png":
     case "svg":
+      return filePath;
+
+    case "pjp":
+    case "icns":
+    case "ico":
+    case "gif":
     case "tif":
     case "bmp":
     case "psd":
-      return "img.png";
+      return "icons/img.png";
 
     case "xlam":
     case "xlam":
@@ -43,10 +45,10 @@ const getIcon = async (fileName, filePath) => {
     case "xls":
     case "csv":
     case "numbers":
-      return "excel.png";
+      return "icons/excel.png";
 
     case "pdf":
-      return "pdf.png";
+      return "icons/pdf.png";
 
     case "js":
       return "js.png";
@@ -58,13 +60,13 @@ const getIcon = async (fileName, filePath) => {
 
     case "mhtml":
     case "html":
-      return "html.png";
+      return "icons/html.png";
 
     case "css":
-      return "css.png";
+      return "icons/css.png";
 
     case "zip":
-      return "zip.png";
+      return "icons/zip.png";
 
     case "apk":
     case "rar":
@@ -75,13 +77,13 @@ const getIcon = async (fileName, filePath) => {
     case "egg":
     case "alz":
     case "gz":
-      return "archive.png";
+      return "icons/archive.png";
 
     case "mp3":
     case "wav":
     case "ogg":
     case "wma":
-      return "audio.png";
+      return "icons/audio.png";
 
     case "avi":
     case "wmv":
@@ -92,24 +94,24 @@ const getIcon = async (fileName, filePath) => {
     case "swf":
     case "mp4":
     case "mpeg":
-      return "video.png";
+      return "icons/video.png";
 
     case "json":
-      return "json.png";
+      return "icons/json.png";
 
     case "xml":
-      return "xml.png";
+      return "icons/xml.png";
 
     case "ts":
-      return "ts.png";
+      return "icons/ts.png";
 
     case "hpp":
     case "cpp":
-      return "cpp.png";
+      return "icons/cpp.png";
 
     case "exe":
     case "app":
-      return "program.png";
+      return "icons/program.png";
 
     case "ppt":
     case "pptx":
@@ -117,30 +119,30 @@ const getIcon = async (fileName, filePath) => {
     case "ppsm":
     case "ppam":
     case "ppa":
-      return "ppt.png";
+      return "icons/ppt.png";
 
     case "txt":
     case "rtf":
     case "hwp":
     case "odt":
-      return "text.png";
+      return "icons/text.png";
 
     case "doc":
     case "docx":
     case "dotx":
     case "dot":
     case "docm":
-      return "doc.png";
+      return "icons/doc.png";
 
     case "java":
-      return "java.png";
+      return "icons/java.png";
 
     case "go":
-      return "golang.png";
+      return "icons/golang.png";
 
     case "c":
     case "h":
-      return "clang.png";
+      return "icons/clang.png";
   }
 
   return "icon.png";

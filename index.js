@@ -86,7 +86,7 @@ const getPluginItems = async ({ inputStr }) => {
 
         await Promise.all(
           items.map(async (item) => {
-            item.icon = `icons/${await getIcon(item.fileName, item.filePath)}`;
+            item.icon = await getIcon(item.fileName, item.filePath);
           })
         );
 

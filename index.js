@@ -1,7 +1,9 @@
 const fg = require("fast-glob");
 const path = require("path");
 const os = require("os");
+const fse = require("fs-extra");
 const arvish = require("arvish");
+const prettyBytes = require("pretty-bytes");
 const { getIcon, getRootDir } = require("./utils");
 
 const pluginConf = {
@@ -81,6 +83,20 @@ const getPluginItems = async ({ inputStr }) => {
             arg: filePath,
             fileName,
             filePath,
+            quicklook: {
+              type: 'markdown',
+              data: new Promise(async (resolve, reject) => {
+                const fileInfo = await fse.lstat(filePath);
+                resolve(
+`### ${fileName}
+![fileImage](${filePath})
+###### File Path: ${filePath}
+###### Size: ${prettyBytes(fileInfo.size)}
+###### Created: ${fileInfo.birthtime.toLocaleString()}
+###### Edited: ${fileInfo.mtime.toLocaleString()}
+`);
+              })
+            }
           };
         });
 

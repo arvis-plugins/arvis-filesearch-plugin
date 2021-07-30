@@ -8,7 +8,9 @@
 
 Cross platform file search plugin for [Arvis](https://github.com/jopemachine/arvis)
 
-![](./demo.gif)
+![](./media/demo.gif)
+
+![](./media/demo2.png)
 
 ## Installation
 

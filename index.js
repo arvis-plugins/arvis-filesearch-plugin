@@ -88,12 +88,15 @@ const getPluginItems = async ({ inputStr }) => {
               data: new Promise(async (resolve, reject) => {
                 const fileInfo = await fse.lstat(filePath);
                 resolve(
-`### ${fileName}
-![fileImage](${filePath})
-###### File Path: ${filePath}
-###### Size: ${prettyBytes(fileInfo.size)}
-###### Created: ${fileInfo.birthtime.toLocaleString()}
-###### Edited: ${fileInfo.mtime.toLocaleString()}
+`## ${fileName}
+![fileImage](${filePath.split(' ').join('&#32;')})
+
+***
+
+##### Full Path: \`${filePath}\`
+##### Size: \`${prettyBytes(fileInfo.size)}\`
+##### Created: \`${fileInfo.birthtime.toLocaleString()}\`
+##### Edited: \`${fileInfo.mtime.toLocaleString()}\`
 `);
               })
             }

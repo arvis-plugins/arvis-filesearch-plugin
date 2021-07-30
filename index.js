@@ -83,29 +83,36 @@ const getPluginItems = async ({ inputStr }) => {
             arg: filePath,
             fileName,
             filePath,
-            quicklook: {
-              type: 'markdown',
-              data: new Promise(async (resolve, reject) => {
-                const fileInfo = await fse.lstat(filePath);
-                resolve(
-`## ${fileName}
-![fileImage](${filePath.split(' ').join('&#32;')})
-
-***
-
-##### Full Path: \`${filePath}\`
-##### Size: \`${prettyBytes(fileInfo.size)}\`
-##### Created: \`${fileInfo.birthtime.toLocaleString()}\`
-##### Edited: \`${fileInfo.mtime.toLocaleString()}\`
-`);
-              })
-            }
           };
         });
 
         await Promise.all(
           items.map(async (item) => {
-            item.icon = await getIcon(item.fileName, item.filePath);
+            item.icon = {
+              path: await getIcon(item.fileName, item.filePath)
+            };
+
+            item.quicklook = {
+              type: 'markdown',
+              data: new Promise(async (resolve, reject) => {
+                const fileInfo = await fse.lstat(item.filePath);
+                const imgPath = path.isAbsolute(item.icon.path) ?
+                  (item.icon.path).split(' ').join('&#32;') :
+                  path.resolve(__dirname, item.icon.path);
+
+                resolve(
+`## ${item.fileName}
+![](${imgPath})
+
+***
+
+##### Full Path: \`${item.filePath}\`
+##### Size: \`${prettyBytes(fileInfo.size)}\`
+##### Created: \`${fileInfo.birthtime.toLocaleString()}\`
+##### Edited: \`${fileInfo.mtime.toLocaleString()}\`
+`);
+              })
+            };
           })
         );
 

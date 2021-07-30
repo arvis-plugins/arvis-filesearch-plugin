@@ -51,12 +51,12 @@ const getIcon = async (fileName, filePath) => {
       return "icons/pdf.png";
 
     case "js":
-      return "js.png";
+      return "icons/js.png";
 
     case "arvisworkflow":
     case "arvisplugin":
     case "arvistheme":
-      return "arvis.png";
+      return "icons/arvis.png";
 
     case "mhtml":
     case "html":

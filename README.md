@@ -22,7 +22,7 @@ $ npm i -g arvis-filesearch-plugin
 
 You can edit this plugin's config on `User config table` like below.
 
-![](./config.png)
+![](./media/config.png)
 
 ### include
 

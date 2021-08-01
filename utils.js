@@ -4,7 +4,7 @@ const { fromFile } = require('file-type');
 const getRootDir = () => path.parse(process.cwd()).root;
 
 const getIcon = async (fileName, filePath) => {
-  if (filePath.endsWith("/")) return "folder.png";
+  if (filePath.endsWith("/")) return "icons/folder.png";
 
   let ext;
   if (!fileName.includes(".")) {

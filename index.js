@@ -102,7 +102,9 @@ const getPluginItems = async ({ inputStr }) => {
 
                 resolve(
 `## ${item.fileName}
-![](${imgPath})
+<p align="center">
+  <img src="${imgPath}" width="70%" />
+</p>
 
 ***
 

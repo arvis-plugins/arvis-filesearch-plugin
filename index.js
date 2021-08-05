@@ -92,28 +92,30 @@ const getPluginItems = async ({ inputStr }) => {
               path: await getIcon(item.fileName, item.filePath)
             };
 
-            item.quicklook = {
-              type: 'markdown',
-              data: new Promise(async (resolve, reject) => {
-                const fileInfo = await fse.lstat(item.filePath);
-                const imgPath = path.isAbsolute(item.icon.path) ?
-                  (item.icon.path).split(' ').join('&#32;') :
-                  path.resolve(__dirname, item.icon.path);
+            if (!item.fileName.endsWith('pdf')) {
+              item.quicklook = {
+                type: 'markdown',
+                data: new Promise(async (resolve, reject) => {
+                  const fileInfo = await fse.lstat(item.filePath);
+                  const imgPath = path.isAbsolute(item.icon.path) ?
+                    (item.icon.path).split(' ').join('&#32;') :
+                    path.resolve(__dirname, item.icon.path);
 
-                resolve(
-`## ${item.fileName}
-<p align="center">
-  <img src="${imgPath}" width="70%" />
-</p>
-
-***
-
-##### Full Path: \`${item.filePath}\`
-##### Size: \`${prettyBytes(fileInfo.size)}\`
-##### Created: \`${fileInfo.birthtime.toLocaleString()}\`
-##### Edited: \`${fileInfo.mtime.toLocaleString()}\`
-`);
-              })
+                  resolve(
+                    `## ${item.fileName}
+  <p align="center">
+    <img src="${imgPath}" width="70%" />
+  </p>
+  
+  ***
+  
+  ##### Full Path: \`${item.filePath}\`
+  ##### Size: \`${prettyBytes(fileInfo.size)}\`
+  ##### Created: \`${fileInfo.birthtime.toLocaleString()}\`
+  ##### Edited: \`${fileInfo.mtime.toLocaleString()}\`
+  `);
+                })
+              }
             };
           })
         );
